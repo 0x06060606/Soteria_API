@@ -1,6 +1,6 @@
 # Soteria API
 
-Soteria is a fast REST API Scrapers, Security Researchers, Bots, etc.
+Soteria is a fast REST API for Scrapers, Security Researchers, Bots, etc.
 
 ### Features
 * HTTP
