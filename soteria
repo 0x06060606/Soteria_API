@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name soteria.cf www.soteria.cf;
+    server_name proxy.soteria.cf;
     location / {
         include uwsgi_params;
         uwsgi_pass unix:/opt/Soteria_API/soteria.sock;
