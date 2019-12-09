@@ -41,4 +41,4 @@ api.add_resource(https, '/https')
 api.add_resource(socks4, '/socks4')
 api.add_resource(socks5, '/socks5')
 if __name__ == '__main__':
-     app.run()
+     app.run(host='0.0.0.0')

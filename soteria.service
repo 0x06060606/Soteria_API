@@ -1,0 +1,11 @@
+[Unit]
+Description=Soteria API Server Applet Service
+After=network.target
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/Soteria_API
+Environment="PATH=/opt/Soteria_API/soteriaenv/bin"
+ExecStart=/opt/Soteria_API/soteriaenv/bin/uwsgi --ini soteria.ini
+[Install]
+WantedBy=multi-user.target
