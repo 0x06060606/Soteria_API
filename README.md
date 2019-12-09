@@ -18,7 +18,7 @@ $  sudo apt install python3-venv
 #  cd /opt
 $  sudo git clone https://github.com/0x06060606/Soteria_API.git
 $  sudo chown -hR :www-data /opt/Soteria_API
-$  sudo cd /opt/Soteria_API
+$  cd /opt/Soteria_API
 $  sudo mv soteria.service /etc/systemd/system/soteria.service
 $  python3.6 -m venv soteriaenv
 $  source soteriaenv/bin/activate
