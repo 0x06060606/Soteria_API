@@ -69,18 +69,8 @@
     function breakRTC(){
         setTimeout(function(){
             console.log('   [#] Welcome WebRTC!');
-            Element.prototype.remove = function() {
-                this.parentElement.removeChild(this);
-            }
-            NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-                for(var i = this.length - 1; i >= 0; i--) {
-                    if(this[i] && this[i].parentElement) {
-                        this[i].parentElement.removeChild(this[i]);
-                    }
-                }
-            }
-            document.getElementById("my-element").remove();
+            document.getElementById("webrtc-control").remove();
             console.log('   [#] Bye-Bye WebRTC...');
-        }, 2000);
+        }, 500);
     }
 </script></html>
