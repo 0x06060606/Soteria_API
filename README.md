@@ -1,7 +1,7 @@
-# Soteria API
+# Soteria Proxy API
 ![Soteria](https://github.com/0x06060606/Soteria_API/blob/master/soteria.png?raw=true "Soteria - Anonymity as a Service")
 
-Soteria is a fast REST API for Scrapers, Security Researchers, Bots, etc.
+Soteria is a fast REST Proxy API for Scrapers, Security Researchers, Bots, etc.
 
 ### Features
 * HTTP
