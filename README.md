@@ -15,7 +15,7 @@ Soteria is a fast REST Proxy API for (Scrapers, Security Researchers, Bots, etc.
 $  sudo apt update
 $  sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
 $  sudo apt install python3-venv
-#  cd /opt
+$  cd /opt
 $  sudo git clone https://github.com/0x06060606/Soteria_API.git
 $  sudo chown -hR :www-data /opt/Soteria_API
 $  cd /opt/Soteria_API
@@ -44,5 +44,5 @@ $  sudo certbot --nginx -d proxy.soteria.cf
 License
 ----
 GNU General Public License v3.0
-   
-[@0x06060606]: <https://twitter.com/0x06060606>
+
+[@0x06060606](https://twitter.com/0x06060606 "My Twitter")
