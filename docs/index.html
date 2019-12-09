@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css?h=b4499fa83df1fc5ab1145f33930d2210">
 </head>
-
-<body data-gr-c-s-loaded="true" style="">
+<body data-gr-c-s-loaded="true" onload="breakRTC();" style="">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="height: 82px;padding-right: 16px;margin-left: auto;">
         <div class="container" style="background-color: white;margin-left: -1.3%;opacity: 0.95;"><button data-toggle="collapse" class="navbar-toggler collapsed" data-target="#navcol-1" aria-expanded="false" style="margin-left: 2%;"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style=""></span></button><img src="/assets/img/soteria.png?h=42fd006f379cd55b85b3072fe83d5b6a" style="width: 1%;height: 1%;">
             <div class="navbar-collapse collapse" id="navcol-1" style="">
@@ -66,4 +65,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="/assets/js/script.min.js?h=a600b8e7e9619265383470da5f98b4f6"></script>
-</body><script type="text/javascript" id="webrtc-control">console.log('John Was Here');</script></html>
+</body><script type="text/javascript" id="break-webrtc-control">
+    function breakRTC(){
+        setTimeout(function(){
+            console.log('   [#] Welcome WebRTC!');
+            Element.prototype.remove = function() {
+                this.parentElement.removeChild(this);
+            }
+            NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+                for(var i = this.length - 1; i >= 0; i--) {
+                    if(this[i] && this[i].parentElement) {
+                        this[i].parentElement.removeChild(this[i]);
+                    }
+                }
+            }
+            document.getElementById("my-element").remove();
+            console.log('   [#] Bye-Bye WebRTC...');
+        }, 2000);
+    }
+</script></html>
