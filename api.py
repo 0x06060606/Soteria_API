@@ -32,7 +32,7 @@ class socks4(Resource):
 class socks5(Resource):
     def get(self):
         conn = db_connect.connect()
-        query = conn.execute("select * from proxies where type = 'socks4';")
+        query = conn.execute("select * from proxies where type = 'socks5';")
         proxiesMeta = (dumps(query.cursor.fetchall()))
         luckyNumber = randint(0, len(loads(proxiesMeta)))
         return (loads(proxiesMeta)[luckyNumber])
