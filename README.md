@@ -38,7 +38,7 @@ $  sudo ufw allow 'Nginx Full'
 ```
 $  sudo add-apt-repository ppa:certbot/certbot
 $  sudo apt install python-certbot-nginx
-$  sudo certbot --nginx -d soteria.cf -d www.soteria.cf
+$  sudo certbot --nginx -d proxy.soteria.cf
 ```
 
 License
