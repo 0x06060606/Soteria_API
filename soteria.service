@@ -6,6 +6,6 @@ User=www-data
 Group=www-data
 WorkingDirectory=/opt/Soteria_API
 Environment="PATH=/opt/Soteria_API/soteriaenv/bin"
-ExecStart=/opt/Soteria_API/soteriaenv/bin/uwsgi --ini soteria.ini
+ExecStart=/opt/Soteria_API/soteriaenv/bin/uwsgi --ini soteria.ini --uid www-data --gid www-data
 [Install]
 WantedBy=multi-user.target
