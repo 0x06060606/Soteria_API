@@ -46,3 +46,42 @@ License
 GNU General Public License v3.0
 
 [@0x06060606](https://twitter.com/0x06060606 "My Twitter")
+
+### OpenAPI
+```
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Soteria_Proxy_API",
+    "version": "1.0",
+    "contact": {
+      "name": "Soteria",
+      "url": "https://soteria.cf/",
+      "email": "support@soteria.cf"
+    },
+    "description": "Soteria Proxy API"
+  },
+  "servers": [
+    {
+      "url": "https://proxy.soteria.cf/http",
+      "description": "HTTP Endpoint"
+    },
+    {
+      "url": "https://proxy.soteria.cf/https",
+      "description": "HTTPS Endpoint"
+    },
+    {
+      "url": "https://proxy.soteria.cf/socks4",
+      "description": "Socks4 Endpoint"
+    },
+    {
+      "url": "https://proxy.soteria.cf/socks5",
+      "description": "Socks5 Endpoint"
+    },
+    {
+      "url": "https://proxy.soteria.cf/soteria.pac",
+      "description": "PAC Endpoint"
+    }
+  ]
+}
+```
