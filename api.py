@@ -65,6 +65,7 @@ class socks5(Resource):
 def pacMeta():
     n=(10)
     proxyVan=("")
+    proxyBus=("")
     while n > 0:
         proxyMeta=(getProxy('http'))
         proxy=proxyMeta[0]+":"+proxyMeta[1]
