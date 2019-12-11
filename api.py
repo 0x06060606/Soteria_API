@@ -62,17 +62,22 @@ class socks5(Resource):
         proxiesMeta = (dumps(query.cursor.fetchall()))
         luckyNumber = randint(0, len(loads(proxiesMeta)))
         return (loads(proxiesMeta)[luckyNumber])
+def pacMeta()
+    n=(10)
+    proxyVan=("")
+    while n > 0:
+        proxyMeta=(getProxy('http'))
+        proxy=proxyMeta[0]+":"+proxyMeta[1]
+        if (check(proxy,'http',"http://www.google.com/")==True):
+            n-=1
+            proxyBus=("PROXY "+proxyBus+proxy+"; ")
+        else:
+            n+=1
+        proxyVan=(proxyVan+proxyBus)
+    return (proxyVan)
 @app.route('/soteria.pac')
 def pac():
-    working=(0)
-    while (working==0):
-        proxy=(getProxy('http'))
-        if (check(proxy[0]+":"+proxy[1],'http',"http://www.google.com/")==True):
-            working=(1)
-            test = 'function FindProxyForURL(url, host){ return "PROXY '+str(proxy[0])+':'+str(proxy[1])+';" }'
-            return test
-        else:
-            working=(0)
+    return ('function FindProxyForURL(url, host){ return "'+pacMeta()+'" }')
 api.add_resource(null, '/favicon.ico')
 api.add_resource(http, '/http')
 api.add_resource(https, '/https')
