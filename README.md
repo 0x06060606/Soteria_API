@@ -17,7 +17,8 @@ $  sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-de
 $  sudo apt install python3-venv
 $  cd /opt
 $  sudo git clone https://github.com/0x06060606/Soteria_API.git
-$  sudo chown -hR :www-data /opt/Soteria_API
+$  sudo chown -hR www-data:www-data /opt/Soteria_API
+$  sudo chmod 775 -Rf /opt/Soteria_API/
 $  cd /opt/Soteria_API
 $  sudo mv soteria.service /etc/systemd/system/soteria.service
 $  python3 -m venv soteriaenv
