@@ -22,8 +22,7 @@ $  cd /opt/Soteria_API
 $  sudo mv soteria.service /etc/systemd/system/soteria.service
 $  python3 -m venv soteriaenv
 $  source soteriaenv/bin/activate
-$  pip install wheel
-$  pip install uwsgi flask
+$  pip install wheel uwsgi flask requests flask_restful sqlalchemy
 $  uwsgi --socket 0.0.0.0:5000 --protocol=http -w wsgi:app
 $  deactivate
 $  sudo systemctl start soteria
