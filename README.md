@@ -20,7 +20,7 @@ $  sudo git clone https://github.com/0x06060606/Soteria_API.git
 $  sudo chown -hR :www-data /opt/Soteria_API
 $  cd /opt/Soteria_API
 $  sudo mv soteria.service /etc/systemd/system/soteria.service
-$  python3.6 -m venv soteriaenv
+$  python3 -m venv soteriaenv
 $  source soteriaenv/bin/activate
 $  pip install wheel
 $  pip install uwsgi flask
