@@ -1,0 +1,96 @@
+<style>
+body {
+  margin-top: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.well {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #7c0c0c;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.small-text {
+  text-align: center;
+  color: #a9a6a6;
+  margin-top: 30px;
+}
+
+.fright {
+  float: left;
+  padding-bottom: 20px;
+}
+
+.fleft {
+  float: right;
+  padding-bottom: 20px;
+}
+
+
+/* ---- Float clearfix ---- */
+
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1> 404 - Not Found </h1>
+      <div class="well clearfix">
+        <blockquote>
+          <p id="getOtherJoke"></p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function() {
+  var jokesAPI = "https://api.icndb.com/jokes?escape=javascript";
+  $.getJSON(jokesAPI, {})
+    .done(function(json) {
+      var obj = JSON.stringify(json);
+      var data = JSON.parse(obj);
+      var jokes = [];
+      var jokeDisplay = document.getElementById("getOtherJoke");
+      for (var i = 0; i < data.value.length; i++) {
+        jokes.push(data.value[i].joke);
+      }
+
+      function pickJoke() {
+        var random = Math.floor(Math.random() * jokes.length);
+        return jokes[random];
+      }
+
+      $("#getOtherJoke").append(pickJoke);
+
+      $("#getMessage").on("click", function() {
+        pickedJoke = pickJoke();
+        jokeDisplay.textContent = pickedJoke;
+      });
+
+      $("#twitter").on("click", function() {
+        var textJoke = $("#getOtherJoke").text();
+        $(this).attr(
+          "href",
+          "https://twitter.com/intent/tweet?text=" + textJoke
+        );
+      });
+    })
+
+    .fail(function(jqxhr, textStatus, error) {
+      var err = textStatus + ", " + error;
+      $("#getOtherJoke").append(
+        "Request to the server failed. Try again later!"
+      );
+    });
+});
+</script>
