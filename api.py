@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-from flask import Flask, request, jsonify, render_template, Markup
+import json, requests, socket, urllib3, os, random
+from flask import Flask, request, jsonify, render_template, Markup, send_from_directory
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
 from json import dumps, loads, dumps
 from re import search
 from random import randint
+from threading import Thread
+from time import time
 db_connect = create_engine('sqlite:///proxies.db')
 app = Flask(__name__, template_folder='./html')
 api = Api(app)
@@ -14,6 +17,23 @@ def index():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+def check(proxy, proxType, url):
+    try:
+        requests.get(url,proxies={''+proxType:proxType+'://'+proxy},timeout=(3.05,27))
+        return True
+    except Exception:
+        return False
+def getProxy(proxType):
+    headers = {'Content-Type': 'application/json', 'Authorization': '{0}'.format('null')}
+    api_url = '{0}{1}'.format("https://proxy.soteria.cf/", proxType)
+    response = requests.get(api_url, headers=headers)
+    if response.status_code == 200:
+        return json.loads(response.content.decode('utf-8'))
+    else:
+        return None
+class null(Resource):
+    def get(self):
+        return ('bruh')
 class http(Resource):
     def get(self):
         conn = db_connect.connect()
@@ -42,6 +62,18 @@ class socks5(Resource):
         proxiesMeta = (dumps(query.cursor.fetchall()))
         luckyNumber = randint(0, len(loads(proxiesMeta)))
         return (loads(proxiesMeta)[luckyNumber])
+@app.route('/soteria.pac')
+def pac():
+    working=(0)
+    while (working==0):
+        proxy=(getProxy('http'))
+        if (check(proxy[0]+":"+proxy[1],'http',"http://www.google.com/")==True):
+            working=(1)
+            test = 'function FindProxyForURL(url, host){ return "PROXY '+str(proxy[0])+':'+str(proxy[1])+';" }'
+            return test
+        else:
+            working=(0)
+api.add_resource(null, '/favicon.ico')
 api.add_resource(http, '/http')
 api.add_resource(https, '/https')
 api.add_resource(socks4, '/socks4')
