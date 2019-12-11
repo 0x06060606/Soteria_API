@@ -63,7 +63,7 @@ class socks5(Resource):
         luckyNumber = randint(0, len(loads(proxiesMeta)))
         return (loads(proxiesMeta)[luckyNumber])
 def pacMeta():
-    n=(10)
+    n=(1)
     proxyVan=("")
     proxyBus=("")
     while n > 0:
