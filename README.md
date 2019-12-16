@@ -9,6 +9,7 @@ Soteria is a fast REST Proxy API for (Scrapers, Security Researchers, Bots, etc.
 * Socks4
 * Socks5
 * JSON Output
+* Plain Text Output
 
 ### Setup
 ```
