@@ -45,7 +45,7 @@ GNU General Public License v3.0
 
 [@0x06060606](https://twitter.com/0x06060606 "My Twitter")
 
-### OpenAPI [OFFLINE]
+### OpenAPI [ONLINE]
 ```
 {
   "openapi": "3.0.0",
