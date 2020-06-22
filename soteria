@@ -1,17 +1,16 @@
 server {
+    listen 443 ssl;
     server_name proxy.soteria.cf;
     location / {
         include uwsgi_params;
         uwsgi_pass unix:/opt/Soteria_API/soteria.sock;
     }
-    listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/proxy.soteria.cf/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/proxy.soteria.cf/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 }
 server {
     listen 80;
     server_name proxy.soteria.cf;
-    return 404;
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/opt/Soteria_API/soteria.sock;
+    }
 }
